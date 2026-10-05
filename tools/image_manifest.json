@@ -1,0 +1,922 @@
+[
+ {
+  "image_id": "tumor_classification_l1p02",
+  "src_pdf": "L1",
+  "page": 2,
+  "crop_box_px": [
+   0,
+   0,
+   823,
+   763
+  ],
+  "method": "원본 이미지 객체 무손실 저장(PNG)",
+  "orig_px": [
+   823,
+   763
+  ],
+  "orig_fmt": "png",
+  "final": "tumor_classification_l1p02.png",
+  "final_px": [
+   823,
+   763
+  ],
+  "bytes": 251015
+ },
+ {
+  "image_id": "ak_to_scc_uv_l1p03",
+  "src_pdf": "L1",
+  "page": 3,
+  "crop_box_px": [
+   0,
+   40,
+   1316,
+   879
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   1316,
+   902
+  ],
+  "orig_fmt": "jpeg",
+  "final": "ak_to_scc_uv_l1p03.png",
+  "final_px": [
+   1316,
+   839
+  ],
+  "bytes": 619460
+ },
+ {
+  "image_id": "ak_histology_l1p05",
+  "src_pdf": "L1",
+  "page": 5,
+  "crop_box_px": [
+   0,
+   0,
+   631,
+   464
+  ],
+  "method": "원본 JPEG 바이트 그대로",
+  "orig_px": [
+   631,
+   464
+  ],
+  "orig_fmt": "jpeg",
+  "final": "ak_histology_l1p05.jpg",
+  "final_px": [
+   631,
+   464
+  ],
+  "bytes": 76751
+ },
+ {
+  "image_id": "mammary_paget_l1p08",
+  "src_pdf": "L1",
+  "page": 8,
+  "crop_box_px": [
+   0,
+   0,
+   633,
+   456
+  ],
+  "method": "원본 JPEG 바이트 그대로",
+  "orig_px": [
+   633,
+   456
+  ],
+  "orig_fmt": "jpeg",
+  "final": "mammary_paget_l1p08.jpg",
+  "final_px": [
+   633,
+   456
+  ],
+  "bytes": 37378
+ },
+ {
+  "image_id": "empd_vulva_l1p10",
+  "src_pdf": "L1",
+  "page": 10,
+  "crop_box_px": [
+   0,
+   0,
+   611,
+   738
+  ],
+  "method": "원본 JPEG 바이트 그대로",
+  "orig_px": [
+   611,
+   738
+  ],
+  "orig_fmt": "jpeg",
+  "final": "empd_vulva_l1p10.jpg",
+  "final_px": [
+   611,
+   738
+  ],
+  "bytes": 55289
+ },
+ {
+  "image_id": "empd_histology_l1p11",
+  "src_pdf": "L1",
+  "page": 11,
+  "crop_box_px": [
+   0,
+   18,
+   588,
+   469
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   588,
+   469
+  ],
+  "orig_fmt": "jpeg",
+  "final": "empd_histology_l1p11.png",
+  "final_px": [
+   588,
+   451
+  ],
+  "bytes": 522926
+ },
+ {
+  "image_id": "melanoma_who_table_l1p16",
+  "src_pdf": "L1",
+  "page": 16,
+  "crop_box_px": [
+   0,
+   2,
+   780,
+   484
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   780,
+   510
+  ],
+  "orig_fmt": "png",
+  "final": "melanoma_who_table_l1p16.png",
+  "final_px": [
+   780,
+   482
+  ],
+  "bytes": 39152
+ },
+ {
+  "image_id": "melanoma_subtypes_l1p17",
+  "src_pdf": "L1",
+  "page": 17,
+  "crop_box_px": [
+   16,
+   0,
+   1200,
+   874
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   1282,
+   874
+  ],
+  "orig_fmt": "jpeg",
+  "final": "melanoma_subtypes_l1p17.png",
+  "final_px": [
+   1184,
+   874
+  ],
+  "bytes": 723928
+ },
+ {
+  "image_id": "ectopic_mongolian_spot_l1p21",
+  "src_pdf": "L1",
+  "page": 21,
+  "crop_box_px": [
+   84,
+   0,
+   724,
+   848
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   724,
+   857
+  ],
+  "orig_fmt": "jpeg",
+  "final": "ectopic_mongolian_spot_l1p21.png",
+  "final_px": [
+   640,
+   848
+  ],
+  "bytes": 294627
+ },
+ {
+  "image_id": "halo_nevus_l1p23",
+  "src_pdf": "L1",
+  "page": 23,
+  "crop_box_px": [
+   17,
+   0,
+   973,
+   769
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   1018,
+   769
+  ],
+  "orig_fmt": "jpeg",
+  "final": "halo_nevus_l1p23.png",
+  "final_px": [
+   956,
+   769
+  ],
+  "bytes": 333215
+ },
+ {
+  "image_id": "giant_congenital_nevus_l1p25",
+  "src_pdf": "L1",
+  "page": 25,
+  "crop_box_px": [
+   39,
+   0,
+   617,
+   838
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   617,
+   838
+  ],
+  "orig_fmt": "jpeg",
+  "final": "giant_congenital_nevus_l1p25.png",
+  "final_px": [
+   578,
+   838
+  ],
+  "bytes": 266169
+ },
+ {
+  "image_id": "em_spectrum_table_l2p03",
+  "src_pdf": "L2",
+  "page": 3,
+  "crop_box_px": [
+   0,
+   0,
+   660,
+   514
+  ],
+  "method": "원본 이미지 객체 무손실 저장(PNG)",
+  "orig_px": [
+   660,
+   514
+  ],
+  "orig_fmt": "png",
+  "final": "em_spectrum_table_l2p03.png",
+  "final_px": [
+   660,
+   514
+  ],
+  "bytes": 60893
+ },
+ {
+  "image_id": "infrared_spectrum_l2p08",
+  "src_pdf": "L2",
+  "page": 8,
+  "crop_box_px": [
+   114,
+   94,
+   604,
+   331
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   683,
+   492
+  ],
+  "orig_fmt": "png",
+  "final": "infrared_spectrum_l2p08.png",
+  "final_px": [
+   490,
+   237
+  ],
+  "bytes": 36353
+ },
+ {
+  "image_id": "uv_detrimental_effects_l2p10",
+  "src_pdf": "L2",
+  "page": 10,
+  "crop_box_px": [
+   8,
+   108,
+   699,
+   512
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   699,
+   512
+  ],
+  "orig_fmt": "jpeg",
+  "final": "uv_detrimental_effects_l2p10.png",
+  "final_px": [
+   691,
+   404
+  ],
+  "bytes": 199093
+ },
+ {
+  "image_id": "wrinkle_l2p13",
+  "src_pdf": "L2",
+  "page": 13,
+  "crop_box_px": [
+   25,
+   33,
+   716,
+   389
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   723,
+   469
+  ],
+  "orig_fmt": "jpeg",
+  "final": "wrinkle_l2p13.png",
+  "final_px": [
+   691,
+   356
+  ],
+  "bytes": 212348
+ },
+ {
+  "image_id": "photoaging_mechanism_l2p14",
+  "src_pdf": "L2",
+  "page": 14,
+  "crop_box_px": [
+   28,
+   1,
+   704,
+   507
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   718,
+   508
+  ],
+  "orig_fmt": "jpeg",
+  "final": "photoaging_mechanism_l2p14.png",
+  "final_px": [
+   676,
+   506
+  ],
+  "bytes": 240286
+ },
+ {
+  "image_id": "phototherapy_spectrum_l2p17",
+  "src_pdf": "L2",
+  "page": 17,
+  "crop_box_px": [
+   139,
+   261,
+   656,
+   509
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   656,
+   509
+  ],
+  "orig_fmt": "jpeg",
+  "final": "phototherapy_spectrum_l2p17.png",
+  "final_px": [
+   517,
+   248
+  ],
+  "bytes": 70879
+ },
+ {
+  "image_id": "melanocyte_structure_l2p21",
+  "src_pdf": "L2",
+  "page": 21,
+  "crop_box_px": [
+   355,
+   108,
+   710,
+   534
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   710,
+   534
+  ],
+  "orig_fmt": "jpeg",
+  "final": "melanocyte_structure_l2p21.png",
+  "final_px": [
+   355,
+   426
+  ],
+  "bytes": 153992
+ },
+ {
+  "image_id": "vitiligo_nonsegmental_acrofacial_l2p24",
+  "src_pdf": "L2",
+  "page": 24,
+  "crop_box_px": [
+   0,
+   0,
+   738,
+   557
+  ],
+  "method": "원본 JPEG 바이트 그대로",
+  "orig_px": [
+   738,
+   557
+  ],
+  "orig_fmt": "jpeg",
+  "final": "vitiligo_nonsegmental_acrofacial_l2p24.jpg",
+  "final_px": [
+   738,
+   557
+  ],
+  "bytes": 42626
+ },
+ {
+  "image_id": "vitiligo_segmental_l2p25",
+  "src_pdf": "L2",
+  "page": 25,
+  "crop_box_px": [
+   0,
+   80,
+   733,
+   534
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   733,
+   534
+  ],
+  "orig_fmt": "jpeg",
+  "final": "vitiligo_segmental_l2p25.png",
+  "final_px": [
+   733,
+   454
+  ],
+  "bytes": 263295
+ },
+ {
+  "image_id": "vitiligo_lesions_l2p29",
+  "src_pdf": "L2",
+  "page": 29,
+  "crop_box_px": [
+   0,
+   46,
+   734,
+   459
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   734,
+   459
+  ],
+  "orig_fmt": "jpeg",
+  "final": "vitiligo_lesions_l2p29.png",
+  "final_px": [
+   734,
+   413
+  ],
+  "bytes": 225724
+ },
+ {
+  "image_id": "vitiligo_repigmentation_l2p30",
+  "src_pdf": "L2",
+  "page": 30,
+  "crop_box_px": [
+   412,
+   95,
+   713,
+   467
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   721,
+   476
+  ],
+  "orig_fmt": "png",
+  "final": "vitiligo_repigmentation_l2p30.png",
+  "final_px": [
+   301,
+   372
+  ],
+  "bytes": 81015
+ },
+ {
+  "image_id": "psoriasis_types_l3p04",
+  "src_pdf": "L3",
+  "page": 4,
+  "crop_box_px": [
+   21,
+   26,
+   1158,
+   512
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   1169,
+   553
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_types_l3p04.png",
+  "final_px": [
+   1137,
+   486
+  ],
+  "bytes": 553351
+ },
+ {
+  "image_id": "psoriasis_histology_l3p08",
+  "src_pdf": "L3",
+  "page": 8,
+  "crop_box_px": [
+   0,
+   0,
+   612,
+   398
+  ],
+  "method": "원본 JPEG 바이트 그대로",
+  "orig_px": [
+   612,
+   398
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_histology_l3p08.jpg",
+  "final_px": [
+   612,
+   398
+  ],
+  "bytes": 58796
+ },
+ {
+  "image_id": "psoriasis_clinical_l3p11",
+  "src_pdf": "L3",
+  "page": 11,
+  "crop_box_px": [
+   0,
+   113,
+   690,
+   448
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   690,
+   453
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_clinical_l3p11.png",
+  "final_px": [
+   690,
+   335
+  ],
+  "bytes": 196368
+ },
+ {
+  "image_id": "psoriasis_plaque_a_l3p13",
+  "src_pdf": "L3",
+  "page": 13,
+  "crop_box_px": [
+   8,
+   94,
+   655,
+   474
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   683,
+   474
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_plaque_a_l3p13.png",
+  "final_px": [
+   647,
+   380
+  ],
+  "bytes": 210202
+ },
+ {
+  "image_id": "psoriasis_plaque_b_l3p14",
+  "src_pdf": "L3",
+  "page": 14,
+  "crop_box_px": [
+   53,
+   88,
+   586,
+   451
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   631,
+   463
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_plaque_b_l3p14.png",
+  "final_px": [
+   533,
+   363
+  ],
+  "bytes": 129427
+ },
+ {
+  "image_id": "psoriasis_plaque_c_l3p15",
+  "src_pdf": "L3",
+  "page": 15,
+  "crop_box_px": [
+   60,
+   104,
+   552,
+   453
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   593,
+   464
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_plaque_c_l3p15.png",
+  "final_px": [
+   492,
+   349
+  ],
+  "bytes": 129396
+ },
+ {
+  "image_id": "psoriasis_koebner_l3p16",
+  "src_pdf": "L3",
+  "page": 16,
+  "crop_box_px": [
+   40,
+   16,
+   549,
+   357
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   581,
+   426
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_koebner_l3p16.png",
+  "final_px": [
+   509,
+   341
+  ],
+  "bytes": 121457
+ },
+ {
+  "image_id": "psoriasis_nail_l3p17",
+  "src_pdf": "L3",
+  "page": 17,
+  "crop_box_px": [
+   8,
+   96,
+   642,
+   474
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   649,
+   474
+  ],
+  "orig_fmt": "jpeg",
+  "final": "psoriasis_nail_l3p17.png",
+  "final_px": [
+   634,
+   378
+  ],
+  "bytes": 207608
+ },
+ {
+  "image_id": "pityriasis_rosea_l3p25",
+  "src_pdf": "L3",
+  "page": 25,
+  "crop_box_px": [
+   26,
+   96,
+   622,
+   465
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   636,
+   472
+  ],
+  "orig_fmt": "jpeg",
+  "final": "pityriasis_rosea_l3p25.png",
+  "final_px": [
+   596,
+   369
+  ],
+  "bytes": 245451
+ },
+ {
+  "image_id": "prp_a_l3p28",
+  "src_pdf": "L3",
+  "page": 28,
+  "crop_box_px": [
+   8,
+   115,
+   682,
+   416
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   688,
+   457
+  ],
+  "orig_fmt": "jpeg",
+  "final": "prp_a_l3p28.png",
+  "final_px": [
+   674,
+   301
+  ],
+  "bytes": 292594
+ },
+ {
+  "image_id": "prp_palmoplantar_l3p29",
+  "src_pdf": "L3",
+  "page": 29,
+  "crop_box_px": [
+   25,
+   93,
+   654,
+   448
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   670,
+   467
+  ],
+  "orig_fmt": "jpeg",
+  "final": "prp_palmoplantar_l3p29.png",
+  "final_px": [
+   629,
+   355
+  ],
+  "bytes": 268249
+ },
+ {
+  "image_id": "prp_normal_islands_l3p30",
+  "src_pdf": "L3",
+  "page": 30,
+  "crop_box_px": [
+   81,
+   112,
+   464,
+   442
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   521,
+   457
+  ],
+  "orig_fmt": "jpeg",
+  "final": "prp_normal_islands_l3p30.png",
+  "final_px": [
+   383,
+   330
+  ],
+  "bytes": 190046
+ },
+ {
+  "image_id": "parapsoriasis_small_plaque_l3p33",
+  "src_pdf": "L3",
+  "page": 33,
+  "crop_box_px": [
+   105,
+   104,
+   494,
+   445
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   580,
+   458
+  ],
+  "orig_fmt": "jpeg",
+  "final": "parapsoriasis_small_plaque_l3p33.png",
+  "final_px": [
+   389,
+   341
+  ],
+  "bytes": 171481
+ },
+ {
+  "image_id": "parapsoriasis_large_plaque_l3p34",
+  "src_pdf": "L3",
+  "page": 34,
+  "crop_box_px": [
+   185,
+   99,
+   426,
+   446
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   610,
+   446
+  ],
+  "orig_fmt": "jpeg",
+  "final": "parapsoriasis_large_plaque_l3p34.png",
+  "final_px": [
+   241,
+   347
+  ],
+  "bytes": 77288
+ },
+ {
+  "image_id": "pityriasis_lichenoides_chronica_l3p36",
+  "src_pdf": "L3",
+  "page": 36,
+  "crop_box_px": [
+   20,
+   94,
+   630,
+   451
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   636,
+   470
+  ],
+  "orig_fmt": "jpeg",
+  "final": "pityriasis_lichenoides_chronica_l3p36.png",
+  "final_px": [
+   610,
+   357
+  ],
+  "bytes": 198408
+ },
+ {
+  "image_id": "lichen_planus_skin_l3p39",
+  "src_pdf": "L3",
+  "page": 39,
+  "crop_box_px": [
+   8,
+   136,
+   676,
+   432
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   683,
+   455
+  ],
+  "orig_fmt": "jpeg",
+  "final": "lichen_planus_skin_l3p39.png",
+  "final_px": [
+   668,
+   296
+  ],
+  "bytes": 312284
+ },
+ {
+  "image_id": "lichen_planus_oral_l3p40",
+  "src_pdf": "L3",
+  "page": 40,
+  "crop_box_px": [
+   45,
+   113,
+   511,
+   424
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   571,
+   448
+  ],
+  "orig_fmt": "jpeg",
+  "final": "lichen_planus_oral_l3p40.png",
+  "final_px": [
+   466,
+   311
+  ],
+  "bytes": 160369
+ },
+ {
+  "image_id": "lichen_planus_nail_l3p41",
+  "src_pdf": "L3",
+  "page": 41,
+  "crop_box_px": [
+   32,
+   105,
+   518,
+   432
+  ],
+  "method": "원본 이미지 객체에서 무손실 crop(PNG)",
+  "orig_px": [
+   593,
+   446
+  ],
+  "orig_fmt": "jpeg",
+  "final": "lichen_planus_nail_l3p41.png",
+  "final_px": [
+   486,
+   327
+  ],
+  "bytes": 192909
+ }
+]

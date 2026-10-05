@@ -1,0 +1,161 @@
+# -*- coding: utf-8 -*-
+import sys, json, html; sys.path.insert(0, '/home/user/dq/tools')
+from common import *
+
+# (단원, 유형, 난이도, 문제, 보기 or None, 정답(index or text), 해설, 관련 강의, 예상 근거, 이미지(stem))
+Qs = [
+ ('강의③ 건선', '객관식', '하', '건선 환자의 인설을 강제로 제거할 때 점상 출혈이 나타나는 현상은?',
+  ['Koebner phenomenon', 'Auspitz sign', 'Wickham’s striae', 'Herald patch', 'Pterygium formation'], 1,
+  'Auspitz sign은 인설을 강제로 제거할 때 점상 출혈(pinpoint bleeding)이 생기는 현상으로, 진피유두 끝 위의 표피가 얇아졌기 때문이다(강의③ p.19).',
+  '강의③ p.19', '족보에서 sign 구별 문항(Wickham·Herald·Koebner)이 반복 출제 — 건선 sign으로 확장', None),
+ ('강의③ 건선', '객관식', '중', '건선을 악화시킬 수 있는 약물로 강의에서 제시된 것은?',
+  ['lithium, β-blocker, chloroquine, NSAID(indomethacin 포함)', 'methotrexate, cyclosporine, retinoid', 'vitamin D3 analog, glucocorticoid', 'dithranol, tazarotene, tar', 'PUVA, NBUVB'], 0,
+  '악화요인 약물: lithium, β-blocker, chloroquine, NSAID(indomethacin 포함)(강의③ p.7). 나머지 선택지는 건선의 치료제(p.21–23).',
+  '강의③ p.7, 21–23', '건선 악화요인은 4년 연속 출제(③ 외상 악화) — 악화요인 세부로 변형', None),
+ ('강의③ 건선', '객관식', '중', '건선성 관절염에 대한 설명으로 <u>옳지 않은</u> 것은?',
+  ['건선 환자의 약 6–42%에서 발생한다', '일반 인구에서 약 0.05–1%에서 나타난다', '발병 연령의 peak는 20대이다', '성별에 따른 차이가 없다', '유병률이 seropositive RA에 근접한다'], 2,
+  'PsA의 발병 peak는 35–40세이다(강의③ p.18). 20대는 오답. 나머지는 모두 p.18 내용.',
+  '강의③ p.18', 'PsA는 2021·2022·2023·2025 매년 출제 — “옳지 않은 것” 형태로 반전', None),
+ ('강의③ 건선', '단답형', '하', 'Koebner 현상(isomorphic response)을 정의하고, 강의에서 이 현상이 관찰된다고 한 구진비늘질환을 건선 외에 2가지 이상 쓰시오.',
+  None, '사소한 외상 부위에 질환의 전형적 병변이 나타나는 현상 / 편평태선, lichen nitidus, 모공성홍색잔비늘증(PRP)',
+  '강의③ p.19: “Appearance of typical lesions of psoriasis at sites of even trivial injuries (also observed in lichen planus, lichen nitidus, PRP)”. 편평태선 슬라이드(p.37)와 비분절성 백반증(강의② p.23)에도 Koebner가 언급된다.',
+  '강의③ p.19, 37, 강의② p.23', '16학번본 족보 정의형 단답(Koebner) — 반복 출제 개념이라는 족보 해설', None),
+ ('강의③ 구진비늘', '객관식', '중', '모공성홍색잔비늘증(PRP)의 특징으로 옳은 것은?',
+  ['병변 내에 정상 피부 섬(small islands of normal skin)이 보인다', '병변의 장축이 피부 할선과 평행하게 배열한다', '병변을 가로지르는 회백색 선(Wickham’s striae)이 보인다', '단일 herald patch로 시작한다', '인설을 제거하면 점상 출혈이 생긴다'], 0,
+  'PRP는 정상 피부 섬, 손발바닥 각화증(sandal 모양), 각질 마개가 있는 모공성 구진이 특징(강의③ p.27). ②·④는 장미색잔비늘증(p.24), ③은 편평태선(p.37), ⑤는 건선(p.19).',
+  '강의③ p.24, 27, 37, 19', '구진비늘질환은 서로 구별하는 sign 문항이 족보에서 반복됨', None),
+ ('강의③ 구진비늘', '객관식', '중', '장미색잔비늘증에 대한 설명으로 옳은 것은?',
+  ['단일 herald patch 이후 1–2주에 병변이 퍼지고 3–8주에 자연 소실된다', '대개 수년간 지속되는 만성 질환이다', '손발바닥 각화증이 특징이다', '병변의 장축이 피부 할선에 수직이다', '중심에 각질 마개를 가진 갈색 구진이 특징이다'], 0,
+  '강의③ p.24: herald(mother) patch → 1–2주 후 급속히 퍼지고 3–8주에 자연 소실, 병변 장축은 lines of cleavage와 평행. ③⑤는 PRP.',
+  '강의③ p.24, 27', '2019 족보(herald patch 문항)의 확장 — 경과 기간으로 변형', None),
+ ('강의③ 구진비늘', '비교형', '중', '유건선의 두 유형(small plaque / large plaque)을 크기와 림프종 진행 가능성으로 비교하시오.',
+  None, 'Small plaque: 1–5cm, 림프종으로 진행하지 않음 / Large plaque: 5–15cm, 10–30%에서 T-cell lymphoma로 진행(특히 심한 소양증 동반)',
+  '강의③ p.32. Parapsoriasis는 만성·치료저항성·무증상의 반구진 인설성 발진군이며, 이 중 large plaque형만 림프종 위험이 있다.',
+  '강의③ p.31–32', '강의 슬라이드의 수치 비교 — 족보의 “수치 오답 선지” 패턴을 서술형으로 전환', None),
+ ('강의③ 편평태선', '그림 해석형', '중', '다음 손톱 사진에서 보이는 편평태선 손톱 변화의 특징적 소견은?',
+  ['Pterygium formation', 'Auspitz sign', 'Sandal sign', 'Herald patch', 'Wickham’s striae'], 0,
+  '편평태선 손톱에서는 pterygium formation이 특징적(강의③ p.38)이며 종주 홈, 조갑박리, ridging, splitting, midline fissure도 보인다. Sandal 모양은 PRP의 발 각화증.',
+  '강의③ p.38, 41', '강의 사진이 그대로 출제되는 경향(건선·백반증·장미색잔비늘증)', 'lichen_planus_nail'),
+ ('강의③ 편평태선', '응용형', '상', '75세 남자가 구강 작열감으로 내원했다. 구강 점막에 ulcerative(erosive) 형태의 편평태선 병변이 확인되었다. 이 병변에 대해 가장 적절한 설명은?',
+  ['전암 상태(premalignant condition)이므로 악성 변화에 유의해야 한다', 'reticular 형이므로 볼 안쪽에 국한되는 양성 병변이다', 'Auspitz sign으로 진단한다', 'Koebner 현상이 구강 병변의 원인이다', '단일 herald patch가 선행한다'], 0,
+  '구강 편평태선은 reticular(볼 안쪽) / atrophic / ulcerative(erosive)로 나뉘며 ulcerative(erosive)형은 premalignant condition이다(강의③ p.38).',
+  '강의③ p.37–38, 40', '16학번본(구강 LP 사진·악성화 → 조직검사) 문항의 응용 — 형태별 구분으로 변형', None),
+ ('강의① 종양', '객관식', '중', '기저세포암에 대한 설명으로 옳은 것은?',
+  ['손바닥·발바닥·입술 홍순에는 발생하지 않는다', '전이율이 높아 예후가 나쁘다', 'p53 유전자 돌연변이가 원인이다', '멜라닌세포에서 유래한다', '직업적 장기 노출이 간헐적 짧은 노출보다 더 위험하다'], 0,
+  '강의① p.12: 손바닥·발바닥·입술 홍순에는 발생이 없어 모낭(털피지단위) 유래로 추정, 원인 PTCH 변이, 간헐적 짧은 노출이 위험, 전이율 극히 낮음(p.13). p53은 광선각화증(p.4).',
+  '강의① p.2, 4, 12–13', '2019 족보 BCC 문항 — 선지를 강의 세부 내용으로 재구성', None),
+ ('강의① 종양', '객관식', '중', 'Queyrat 홍색비후증에 대한 설명으로 옳은 것은?',
+  ['음경 귀두·포피에 발생한 Bowen병으로 악성화 빈도가 높다', '유방 유두에 발생하는 습진성 병변이다', '일광노출 부위에 생기는 암전구증이다', '기저세포암의 아형이다', '악성화 빈도가 0.5% 미만이다'], 0,
+  'Queyrat 홍색비후증은 음경 귀두·포피의 Bowen병으로 악성화 빈도가 10–33%로 높고 더 침습적이다(강의① p.6). 암전구증 목록에도 포함된다(p.4).',
+  '강의① p.4, 6', '암전구증(4회 출제) 목록 구성원의 정체를 묻는 문항으로 확장', None),
+ ('강의① 종양', '객관식', '중', '유방외 Paget병에서 내부 장기암의 동반 확률이 더 높은 발생 부위는?',
+  ['항문주위', '외음부', '두 부위 차이가 없다', '액와', '서혜부'], 0,
+  '강의① p.9: 이차 유방외 Paget병은 기저암에 의해 발생하며, 항문주위에 발생한 것이 외음부에 발생한 것보다 내부 장기암과 동반될 확률이 높다.',
+  '강의① p.9', '강의에서 두 부위를 직접 비교한 문장', None),
+ ('강의① 종양', '객관식', '중', '다음 중 편평세포암의 전이율이 가장 높은 경우는? (강의에서 제시한 수치 기준)',
+  ['일광손상 피부에 생긴 SCC', '아랫입술에 생긴 SCC', '흉터에 생긴 SCC', '세 경우 모두 같다'], 2,
+  '강의① p.14: 전이율 일광손상 피부 약 5%, 아랫입술 약 13%, 흉터 약 40%.',
+  '강의① p.14', 'SCC 고위험 인자(3회 출제)와 연결되는 수치 문항', None),
+ ('강의① 모반', '그림 해석형', '중', '다음 사진의 병변(거대 선천성 색소성 모반)이 흑색종으로 이행할 빈도는?',
+  ['0.0028–0.55%', '6–12%', '약 40%', '약 5%', '10–33%'], 1,
+  '강의① p.24: Giant pigmented nevus(직경 &gt;20cm)에서 흑색종 발생 6–12%. “약 40%”는 소아 흑색종 중 이 병변과 관련된 비율, 0.0028–0.55%는 BCC 전이율, 10–33%는 Queyrat 악성화 빈도.',
+  '강의① p.24–25', '강의 사진 기반 출제 경향 + 숫자 혼동 유도', 'giant_congenital_nevus'),
+ ('강의① 종양', '객관식', '중', 'WHO 분류의 악성흑색종 major subtype에 <u>해당하지 않는</u> 것은?',
+  ['Superficial spreading melanoma', 'Nodular melanoma', 'Lentigo maligna melanoma', 'Acral lentiginous melanoma', 'Desmoplastic melanoma'], 4,
+  '강의① p.16 표: major subtypes는 SSM·nodular·lentigo maligna·acral lentiginous이고 desmoplastic은 Other 범주이다.',
+  '강의① p.16–17', '강의에 제시된 표를 그대로 활용(족보에는 미출제 — 강의 강조 개념)', None),
+ ('강의① 종양', '객관식', '중', '강의에서 제시한 전구암증(precancerous conditions) 목록에 <u>포함되지 않는</u> 것은?',
+  ['피각', '비소각화증', 'Queyrat 홍색비후증', '선천성 거대 색소성모반', 'Halo nevus'], 4,
+  '강의① p.4 전구암증: 광선각화증, 비소각화증, 백판증, 피각, 선천성 거대 색소성모반, 만성방사선피부염, 색소건피증, Bowen병, Queyrat 홍색비후증. Halo nevus는 목록에 없음.',
+  '강의① p.4, 22', '암전구증 “아닌 것” 유형(4년 연속) — 정답 선지를 IP에서 다른 항목으로 교체', None),
+ ('강의② 색소·노화', '객관식', '중', '동양인에서 UVB의 MED(최소 홍반량)로 제시된 값은?',
+  ['50–70 mJ/cm²', '50–70 J/cm²', '5–7 mJ/cm²', '500–700 mJ/cm²', '50–70 μJ/cm²'], 0,
+  '강의② p.6: MED는 24시간 후 겨우 인지되는 홍반을 일으키는 최소량이며 동양인에서 UVA 50–70 J/cm², UVB 50–70 mJ/cm²(UVB 필요량이 1/1000).',
+  '강의② p.6', 'UVA/UVB 수치 혼동 선지가 4년 연속 출제', None),
+ ('강의② 색소·노화', '비교형', '중', 'UVA와 UVB를 파장, 유리창 통과 여부(강의 기준), 주된 피부 작용, DNA 손상 방식 측면에서 비교하여 서술하시오.',
+  None, 'UVA: 320–400nm, melanogenic action·광노화, 진피 깊이 침투, DNA는 간접 손상(ROS·발색단) / UVB: 290–320nm, 유리창에 차단, sunburn·suntanning·광발암, 직접 DNA 손상(CPD·6-4PP), 광자 에너지는 UVA의 약 1000배',
+  '강의② p.4–6, p.10. UVA 유리창 통과 여부는 강의에 언급이 없으므로 비교 항목에서 [자료 근거 없음]으로 둔다.',
+  '강의② p.4–6, 10', '4회 출제된 UVA/UVB 선지를 서술형으로 통합', None),
+ ('강의② 색소·노화', '객관식', '중', '광치료에서 NBUVB(311nm)가 PUVA에 비해 갖는 장점이 <u>아닌</u> 것은?',
+  ['치료 반응이 빠르다', '관해 기간이 길다', '광감작제가 필요하다', '임신·소아에서 사용할 수 있다', '발암성이 낮다'], 2,
+  '강의② p.18: NBUVB는 PUVA에 비해 faster clearance, longer remission, fewer excessive erythema, cheaper, no photosensitizer, 임신·소아 사용, 치료 후 눈 보호 불필요, less carcinogenic.',
+  '강의② p.17–18', '건선 치료 문항의 정답이 NBUVB(3회) — 장점을 직접 묻는 문항으로 확장', None),
+ ('강의② 색소·노화', '서술형', '상', '백반증의 병인을 강의 내용에 근거하여 설명하고, 광치료가 재색소화를 일으키는 기전을 서술하시오.',
+  None, '병인: 유전요인 + oxidative stress → 자가면역(세포성·체액성). 이웃 keratinocyte apoptosis 증가, melanocytorrhagy, 산화스트레스(세포막 변화), autocytotoxicity. 광치료: photoimmunosuppression + 모낭 outer root sheath의 비활성 melanocyte 활성화·증식·이동, keratinocyte의 mitogen 방출 자극, 이동 증진',
+  '강의② p.26–27, 30. 갑상선질환·DM·SLE·원형탈모 등 자가면역 질환 동반(p.28)을 덧붙이면 좋다.',
+  '강의② p.26–28, 30', '백반증은 2021·2022·2025 출제(병인 선지: oxidative stress·cellular/humoral)', None),
+]
+
+data = []
+for i, (unit, typ, dif, stem, opts, ans, expl, ref, basis, img) in enumerate(Qs, 1):
+    d = dict(n=i, unit=unit, type=typ, diff=dif, stem=stem, opts=opts, ans=ans, expl=expl, ref=ref, basis=basis)
+    if img:
+        f = find_img(img); d['img'] = f'assets/강의록/{f}'; d['imgw'] = Image_w(f) if False else None
+    data.append(d)
+from PIL import Image
+for d in data:
+    if d.get('img'):
+        with Image.open(OUT + d['img']) as im: d['imgw'] = im.size[0]
+
+JS = r'''
+<script>
+const Q = __DATA__;
+const state = {}; let typeF = 'all', diffF = 'all';
+const $ = s => document.querySelector(s);
+function render(){
+  const box = $('#qs'); box.innerHTML = '';
+  Q.filter(q => (typeF==='all'||q.type===typeF) && (diffF==='all'||q.diff===diffF)).forEach(q => {
+    const s = state[q.n] || (state[q.n] = {sel:null, checked:false});
+    const div = document.createElement('section'); div.className = 'pq'; div.id = 'q'+q.n;
+    let h = `<div class="ph"><b>문제 ${q.n}</b> <span class="chip">${q.unit}</span> <span class="chip">${q.type}</span> <span class="chip d${q.diff}">난이도 ${q.diff}</span></div><p class="stem">${q.stem}</p>`;
+    if(q.img) h += `<img src="${q.img}" alt="문제 ${q.n} 그림" style="max-width:${Math.min(q.imgw,420)}px">`;
+    if(q.opts){
+      h += '<ol class="opts">' + q.opts.map((o,i)=>{
+        let c=''; if(s.checked){ if(i===q.ans) c='right'; else if(i===s.sel) c='wrong'; }
+        return `<li class="${c}"><label><input type="radio" name="r${q.n}" value="${i}" ${s.sel===i?'checked':''} ${s.checked?'disabled':''}> ${'①②③④⑤'[i]} ${o}</label></li>`;}).join('') + '</ol>';
+      h += `<button data-a="check" data-n="${q.n}">정답 확인</button> `;
+    }
+    h += `<button data-a="ans" data-n="${q.n}">정답 ${s.showA?'숨기기':'보기'}</button> <button data-a="exp" data-n="${q.n}">해설 ${s.showE?'숨기기':'보기'}</button>`;
+    if(s.checked && q.opts) h += `<span class="res ${s.sel===q.ans?'ok':'ng'}">${s.sel===q.ans?'정답입니다':'오답입니다'}</span>`;
+    if(s.showA) h += `<div class="ansbox"><b>정답</b> ${q.opts? '①②③④⑤'[q.ans]+' '+q.opts[q.ans] : q.ans}</div>`;
+    if(s.showE) h += `<div class="expbox"><b>해설</b> ${q.expl}<br><span class="mini">관련 강의 개념: ${q.ref} · 예상 근거: ${q.basis}</span></div>`;
+    div.innerHTML = h; box.appendChild(div);
+  });
+  const done = Object.values(state).filter(s=>s.checked).length, ok = Q.filter(q=>q.opts && state[q.n] && state[q.n].checked && state[q.n].sel===q.ans).length;
+  const mc = Q.filter(q=>q.opts).length;
+  $('#prog').textContent = `진행: 객관식 ${done}/${mc} 확인 · 정답 ${ok}`; $('#bar').style.width = (mc? done/mc*100:0)+'%';
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-a]'); if(!b) return;
+  const n = +b.dataset.n, s = state[n] || (state[n]={sel:null,checked:false});
+  if(b.dataset.a==='check'){ if(s.sel===null){ alert('보기를 먼저 선택하세요'); return;} s.checked=true; }
+  if(b.dataset.a==='ans') s.showA=!s.showA; if(b.dataset.a==='exp') s.showE=!s.showE; render();
+});
+document.addEventListener('change', e => { if(e.target.type==='radio'){ const n=+e.target.name.slice(1); (state[n]||(state[n]={sel:null,checked:false})).sel=+e.target.value; } });
+$('#fType').addEventListener('change', e=>{typeF=e.target.value;render();});
+$('#fDiff').addEventListener('change', e=>{diffF=e.target.value;render();});
+$('#allA').onclick = ()=>{Q.forEach(q=>{(state[q.n]||(state[q.n]={sel:null,checked:false})).showA=true});render();};
+$('#allE').onclick = ()=>{Q.forEach(q=>{(state[q.n]||(state[q.n]={sel:null,checked:false})).showE=true});render();};
+$('#hideAll').onclick = ()=>{Q.forEach(q=>{const s=(state[q.n]||(state[q.n]={sel:null,checked:false}));s.showA=false;s.showE=false});render();};
+render();
+</script>'''
+types = sorted(set(q['type'] for q in data), key=lambda t: ['객관식','그림 해석형','응용형','단답형','비교형','서술형'].index(t))
+CSS2 = '''
+.bar{height:6px;background:#e3e8f0;border-radius:3px;margin:4px 0}.bar div{height:100%;background:#2f9e5a;border-radius:3px;width:0}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0;position:sticky;top:0;background:#fff;padding:6px 0;z-index:5;border-bottom:1px solid #cfd6e0}
+.pq{border:1px solid #cfd6e0;border-radius:6px;padding:8px 12px;margin:10px 0}.pq .stem{margin:6px 0;font-weight:bold}
+.chip{display:inline-block;font-size:8.5pt;background:#e8eef7;color:#14365d;border-radius:10px;padding:0 8px;margin-left:4px}.chip.d상{background:#fbe3e0}.chip.d중{background:#fff1d6}.chip.d하{background:#e0f3e6}
+.opts{list-style:none;padding:0;margin:4px 0}.opts li{padding:2px 6px;border-radius:4px}.opts li.right{background:#d6f5de}.opts li.wrong{background:#fbe0dd}
+button,select{font-family:inherit;font-size:9.5pt;padding:3px 10px;border:1px solid #14365d;background:#fff;color:#14365d;border-radius:4px;cursor:pointer}button:hover{background:#eef3fb}
+.ansbox,.expbox{margin:6px 0;padding:5px 9px;border-radius:4px}.ansbox{background:#eaf7ee;border:1px solid #8fd19e}.expbox{background:#f5f7fb;border:1px solid #cfd6e0}
+.res{margin-left:8px;font-weight:bold}.res.ok{color:#1b7a34}.res.ng{color:#b0382d}.pq img{display:block;margin:6px 0;border:1px solid #cfd6e0;height:auto}
+@media print{.ctl{position:static}button,select{display:none}}
+'''
+body = ('<h1>예상문제 — 두경부 및 피부(피부과)</h1><p class="sub">강의자료(강의①②③)와 족보 출제 패턴(40문항 분석)을 바탕으로 새로 만든 문제 20개. 모든 정답은 강의자료에 근거하며 기존 족보 문제를 복사하지 않았습니다. 계산형은 이 과목 범위에 해당 내용이 없어 출제하지 않았습니다.</p>'
+        '<div class="ctl"><label>유형 <select id="fType"><option value="all">전체</option>' + ''.join(f'<option>{t}</option>' for t in types) + '</select></label>'
+        '<label>난이도 <select id="fDiff"><option value="all">전체</option><option>하</option><option>중</option><option>상</option></select></label>'
+        '<button id="allA">전체 정답 펼치기</button><button id="allE">전체 해설 펼치기</button><button id="hideAll">모두 숨기기</button><span id="prog"></span></div><div class="bar"><div id="bar"></div></div><div id="qs"></div>'
+        '<footer class="page-note">모든 문제는 로컬에서 동작하며 외부 서버·CDN을 사용하지 않습니다. 이미지는 강의 PDF에서 추출한 원본(assets/강의록).</footer>')
+js = JS.replace('__DATA__', json.dumps(data, ensure_ascii=False))
+open(OUT + '예상문제.html', 'w', encoding='utf8').write(page('예상문제 — 두경부 및 피부(피부과)', f'<style>{CSS2}</style>' + body, js))
+print(len(data), 'questions')
